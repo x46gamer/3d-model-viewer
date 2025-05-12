@@ -4,15 +4,16 @@
   "description": "A 3D model viewer for GLB files using Three.js",
   "main": "index.js",
   "scripts": {
-    "start": "vite",
+    "start": "serve -s dist",
     "build": "vite build"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.39.7",
+    "serve": "^14.2.4",
     "three": "^0.162.0",
-    "three-stdlib": "^2.29.5",
-    "@supabase/supabase-js": "^2.39.7"
+    "three-stdlib": "^2.29.5"
   },
   "devDependencies": {
     "vite": "^5.1.4"
   }
-} 
+}
