@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Model Viewer</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        #file-input-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            gap: 10px;
+        }
+        #file-input, #env-input {
+            display: none;
+        }
+        .file-input-button {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            white-space: nowrap;
+        }
+        .file-input-button:hover {
+            background: #45a049;
+        }
+        #loading {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 24px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="upload-page" style="display:none;width:100vw;height:100vh;align-items:center;justify-content:center;flex-direction:column;position:fixed;top:0;left:0;z-index:1000;background:rgba(0,0,0,0.92);">
+        <div id="file-input-container" style="margin-top:60px;">
+            <input type="file" id="file-input" accept=".glb" />
+            <button class="file-input-button" onclick="document.getElementById('file-input').click()">
+                Choose GLB File
+            </button>
+            <input type="file" id="env-input" accept=".hdr,.exr" />
+            <button class="file-input-button" onclick="document.getElementById('env-input').click()">
+                Load Environment Map
+            </button>
+        </div>
+    </div>
+    <div id="loading">Loading...</div>
+    <div id="notification" style="position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:12px 24px;border-radius:6px;z-index:200;display:none;min-width:200px;text-align:center;font-size:16px;box-shadow:0 2px 10px rgba(0,0,0,0.2);"></div>
+    <div id="login-container" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.85);z-index:1000;align-items:center;justify-content:center;">
+        <form id="login-form" style="background:#222;padding:32px 24px;border-radius:10px;box-shadow:0 2px 20px #000;display:flex;flex-direction:column;gap:18px;min-width:320px;">
+            <h2 style="color:#fff;text-align:center;margin:0 0 12px 0;">Login</h2>
+            <input type="email" id="login-email" placeholder="Email" required style="padding:10px;font-size:16px;border-radius:4px;border:none;outline:none;" />
+            <input type="password" id="login-password" placeholder="Password" required style="padding:10px;font-size:16px;border-radius:4px;border:none;outline:none;" />
+            <button type="submit" style="background:#4CAF50;color:#fff;padding:10px 0;font-size:16px;border:none;border-radius:4px;cursor:pointer;">Login</button>
+            <div id="login-error" style="color:#ff6b6b;text-align:center;display:none;"></div>
+        </form>
+    </div>
+    <script type="module" src="/main.js"></script>
+</body>
+</html> 
