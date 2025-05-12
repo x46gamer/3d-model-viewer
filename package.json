@@ -14,7 +14,6 @@
     "@supabase/supabase-js": "^2.39.7"
   },
   "devDependencies": {
-    "vite": "^5.1.4",
-    "vercel": "^31.6.1"
+    "vite": "^5.1.4"
   }
 } 
